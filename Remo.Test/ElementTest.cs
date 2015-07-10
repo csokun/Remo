@@ -17,5 +17,14 @@ namespace Remo.Test
 		{
 			Assert.NotNull(new Element("name =sokun").Select());
 		}
+
+		[Fact]
+		public void Get_element_by_xpath()
+		{
+			var el = new Element("//*[@id='page_content_holder']/form/fieldset/p[4]/input");
+
+			Assert.NotNull(el);
+			Assert.Equal("By.XPath: //*[@id='page_content_holder']/form/fieldset/p[4]/input", el.Select().ToString());
+		}
 	}
 }

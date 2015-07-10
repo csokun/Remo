@@ -1,18 +1,29 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 
 namespace Remo
 {
-	public abstract class AbstractCommand : ICommand
+	public abstract class AbstractCommand : IWebCommand
 	{
-		protected StepDescriptor step;
-		protected IWebDriver driver;
+		protected TestStep TestStep { get; private set; }
+		protected IWebDriver Driver { get; private set; }
 
-		protected AbstractCommand(StepDescriptor step, IWebDriver driver)
+		protected AbstractCommand(TestStep testStep)
 		{
-			this.step = step;
-			this.driver = driver;
+			this.TestStep = testStep;
 		}
-		
-		public abstract void Execute();
+
+		public IWebCommand SetDriver(IWebDriver driver)
+		{
+			this.Driver = driver;
+			return this;
+		}
+
+		public virtual void Execute()
+		{
+			if (Driver == null)
+				throw new NullReferenceException(
+				"WebDriver is missing make sure you call SetDriver(IWebDriver) method before invoking execute() method");
+		}
 	}
 }

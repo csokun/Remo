@@ -12,9 +12,9 @@ namespace Remo.Test
 		{
 			using (var driver = new ChromeDriver())
 			{
-				var step = new StepDescriptor() {Value = "http://play.joljet.net"};
-				var navigate = new NavigateCommand(step, driver);
-
+				var step = new TestStep {Value = "http://play.joljet.net"};
+				var navigate = new NavigateCommand(step);
+				navigate.SetDriver(driver);
 				navigate.Execute();
 			}
 		}
@@ -24,10 +24,11 @@ namespace Remo.Test
 		{
 			using (var driver = new ChromeDriver())
 			{
-				var step = new StepDescriptor() { Value = "testing something" };
-				var navigate = new NavigateCommand(step, driver);
+				var step = new TestStep {Value = "testing something"};
+				var navigate = new NavigateCommand(step);
+				navigate.SetDriver(driver);
 
-				Exception ex = Assert.Throws<System.UriFormatException>(() => navigate.Execute());
+				Exception ex = Assert.Throws<UriFormatException>(() => navigate.Execute());
 			}
 		}
 	}

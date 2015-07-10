@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System.Linq;
 
 namespace Remo.Descriptor
 {
@@ -14,6 +15,13 @@ namespace Remo.Descriptor
 		{
 			if (string.IsNullOrEmpty(element))
 				return;
+			
+			// assume XPath expression
+			if (element.Contains("/"))
+			{
+				this.element = By.XPath(element);
+				return;
+			}
 
 			var token = element.Split('=');
 			if (token.Length != 2)
@@ -34,6 +42,7 @@ namespace Remo.Descriptor
 			{
 				this.element = By.LinkText(value);
 			}
+
 
 		}
 

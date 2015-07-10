@@ -55,18 +55,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractCommand.cs" />
-    <Compile Include="CommandLocator.cs" />
+    <Compile Include="CommandFactory.cs" />
     <Compile Include="Commands\ClickCommand.cs" />
     <Compile Include="Commands\SelectCommand.cs" />
     <Compile Include="Commands\SnapshotCommand.cs" />
     <Compile Include="Commands\TypeCommand.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
+    <Compile Include="Datasources\ExcelSource.cs" />
+    <Compile Include="Datasources\IDatasource.cs" />
     <Compile Include="Descriptor\Element.cs" />
-    <Compile Include="ICommand.cs" />
+    <Compile Include="IWebCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Descriptor\StepDescriptor.cs" />
-    <Compile Include="UnitTest.cs" />
+    <Compile Include="Descriptor\TestStep.cs" />
+    <Compile Include="Descriptor\TestCase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

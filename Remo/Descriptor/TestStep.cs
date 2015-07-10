@@ -2,8 +2,8 @@
 
 namespace Remo
 {
-	public class StepDescriptor
-	{
+	public class TestStep
+	{	
 		public string Action { get; set; }
 		
 		public string Target { get; set; }
