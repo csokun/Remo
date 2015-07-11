@@ -1,12 +1,10 @@
-﻿using OpenQA.Selenium;
-
-namespace Remo.Commands
+﻿namespace Remo.Commands
 {
 	public class TypeCommand: AbstractCommand
 	{
 		public override void Execute()
 		{
-			Driver.FindElement(TestStep.Property.Select()).SendKeys(TestStep.Value);
+			Driver.FindElement(TestStep.Property.Current()).SendKeys(TestStep.Value);
 		}
 
 		public TypeCommand(TestStep testStep) : base(testStep)

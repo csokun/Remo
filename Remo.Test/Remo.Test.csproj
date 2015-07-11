@@ -78,6 +78,7 @@
     <Compile Include="NavigateCommandTest.cs" />
     <Compile Include="PathHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VerifyEqualsTextStrategyTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Artifacts\TEST_TEMPLATE.xlsx" />

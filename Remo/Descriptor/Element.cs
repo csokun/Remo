@@ -46,7 +46,7 @@ namespace Remo.Descriptor
 
 		}
 
-		public By Select()
+		public By Current()
 		{
 			return this.element;
 		}

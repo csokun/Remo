@@ -7,7 +7,7 @@ namespace Remo.Commands
 		public override void Execute()
 		{
 			base.Execute();
-			new SelectElement(Driver.FindElement(TestStep.Property.Select())).SelectByText(TestStep.Value);
+			new SelectElement(Driver.FindElement(TestStep.Property.Current())).SelectByText(TestStep.Value);
 		}
 
 		public SelectCommand(TestStep testStep) : base(testStep)

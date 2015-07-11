@@ -9,13 +9,13 @@ namespace Remo.Test
 		public void Get_element_by_id()
 		{
 			var el = new Element("id = sokun");
-			Assert.NotNull(el.Select());
+			Assert.NotNull(el.Current());
 		}
 
 		[Fact]
 		public void Get_element_by_name()
 		{
-			Assert.NotNull(new Element("name =sokun").Select());
+			Assert.NotNull(new Element("name =sokun").Current());
 		}
 
 		[Fact]
@@ -24,7 +24,7 @@ namespace Remo.Test
 			var el = new Element("//*[@id='page_content_holder']/form/fieldset/p[4]/input");
 
 			Assert.NotNull(el);
-			Assert.Equal("By.XPath: //*[@id='page_content_holder']/form/fieldset/p[4]/input", el.Select().ToString());
+			Assert.Equal("By.XPath: //*[@id='page_content_holder']/form/fieldset/p[4]/input", el.Current().ToString());
 		}
 	}
 }

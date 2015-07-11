@@ -5,7 +5,7 @@
 		public override void Execute()
 		{
 			base.Execute();
-			Driver.FindElement(TestStep.Property.Select()).Click();
+			Driver.FindElement(TestStep.Property.Current()).Click();
 		}
 
 		public ClickCommand(TestStep testStep) : base(testStep)
