@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using OpenQA.Selenium.Chrome;
 using Remo.Datasources;
 using Xunit;
@@ -71,6 +70,26 @@ namespace Remo.Test.Datasources
 			}
 
 			Assert.Equal(TestResult.Passed, ut.Result);
+		}
+
+		[Fact]
+		public void Can_take_snapshot()
+		{
+			// arrange
+			CommandFactory.Register();
+
+			var xls = new ExcelSource(Path.Combine(PathHelper.Artifacts("TEST_TEMPLATE.xlsx")));
+			TestCase ut = xls.Get("TestCase-Capture");
+
+			// act
+			using (var driver = new ChromeDriver())
+			{
+				ut.Run(driver);
+			}
+			
+			var directory = Directory.GetCurrentDirectory();
+
+			Assert.True(File.Exists(Path.Combine(directory, "login-page.png")));
 		}
 	}
 }

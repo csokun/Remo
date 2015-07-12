@@ -9,8 +9,11 @@ namespace Remo.Commands
 		public override void Execute()
 		{
 			var directory = Directory.GetCurrentDirectory();
-			var screenshot = Driver.TakeScreenshot();
+			
+			Driver.Manage().Window.Maximize();
 
+			var screenshot = Driver.TakeScreenshot();
+			// save to current path
 			screenshot.SaveAsFile(Path.Combine(directory, TestStep.Value), ImageFormat.Png);
 		}
 

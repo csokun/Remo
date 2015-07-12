@@ -41,16 +41,16 @@ namespace Remo
 
 			for (int i = 0; i < Steps; i++)
 			{
-				try
-				{
+				//try
+				//{
 					CommandFactory.Activate(this.steps[i]).SetDriver(driver).Execute();
-				}
-				catch(Exception e)
-				{
-					Debug.Print(e.Message);
-					Result = TestResult.Failed;
-					return;
-				}
+				//}
+				//catch (Exception e)
+				//{
+				//	Debug.Print(e.Message);
+				//	Result = TestResult.Failed;
+				//	return;
+				//}
 			}
 
 			Result = TestResult.Passed;
